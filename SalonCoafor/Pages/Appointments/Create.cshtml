@@ -1,0 +1,60 @@
+﻿@page
+@model SalonCoafor.Pages.Appointments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create appointment</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Appointment.StylistID" class="control-label"></label>
+                <select asp-for="Appointment.StylistID" class ="form-control" asp-items="ViewBag.StylistID">
+                    <option value="">Select Stylist</option>
+                    <span asp-validation-for="Appointment.StylistID" class="text-danger"></span>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.UserID" class="control-label"></label>
+                <select asp-for="Appointment.UserID" class ="form-control" asp-items="ViewBag.UserID">
+                    <option value="">Select Client</option>
+                </select>
+                <span asp-validation-for="Appointment.UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.ServiceID" class="control-label"></label>
+                <select asp-for="Appointment.ServiceID" class ="form-control" asp-items="ViewBag.ServiceID">
+                    <option value="">Select Service</option>
+                </select> 
+                <span asp-validation-for="Appointment.ServiceID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Data" class="control-label"></label>
+                <input asp-for="Appointment.Data" class="form-control" />
+                <span asp-validation-for="Appointment.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Ora" class="control-label"></label>
+                <input asp-for="Appointment.Ora" class="form-control" />
+                <span asp-validation-for="Appointment.Ora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
